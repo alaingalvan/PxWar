@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noEmitHelpers": false,
+    "sourceMap": false,
+    "outDir": "js/",
+    "rootDir": "src/"
+  },
+  "filesGlob": [
+    "./**/*.ts",
+    "./test/**/*.ts",
+    "!./jspm_packages/**/*.ts",
+    "!./node_modules/**/*.ts",
+    "!./typings/**/*.ts",
+    "./typings/tsd.d.ts"
+  ],
+  "compileOnSave": true,
+  "buildOnSave": true,
+  "atom": {
+    "rewriteTsconfig": true
+  },
+  "files": [
+    "./src/lib/clock.ts",
+    "./src/lib/gameobject.ts",
+    "./src/lib/input.ts",
+    "./src/lib/input/keyboard.ts",
+    "./src/lib/input/mouse.ts",
+    "./src/lib/input/touch.ts",
+    "./src/lib/math/collision.ts",
+    "./src/lib/math/easing.ts",
+    "./src/lib/math/mathex.ts",
+    "./src/lib/renderer.ts",
+    "./src/lib/scene.ts",
+    "./src/lib/viewport.ts",
+    "./src/main.ts",
+    "./src/menu/back.ts",
+    "./src/menu/menu.ts",
+    "./src/ships/bullet.ts",
+    "./src/ships/enemy.ts",
+    "./src/ships/player.ts",
+    "./src/ships/ship.ts"
+  ]
+}

@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'PixelFont';
+  src: url('misc/pxfont.ttf') format('truetype');
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'PixelFont', Fallback, sans-serif;
+  color: #fff;
+}
+canvas {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+}
+@media (min-width:1280px) {
+  canvas {
+    transform: scale(2);
+  }
+}
