@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
+    "target": "es5",
+    "module": "system",
     "declaration": false,
     "noImplicitAny": false,
     "removeComments": false,
@@ -9,8 +9,7 @@
     "experimentalDecorators": true,
     "noEmitHelpers": false,
     "sourceMap": false,
-    "outDir": "js/",
-    "rootDir": "src/"
+    "outDir": "js"
   },
   "filesGlob": [
     "./**/*.ts",

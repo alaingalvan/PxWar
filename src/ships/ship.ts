@@ -60,13 +60,17 @@ export class Ship extends GameObject {
     this.velocity.y = deltaTime * this.spd * -Math.sin(this.rotation * (Math.PI / 180));
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
+
+    //Keep in bounds
+    this.position.x =MathEx.clamp(this.position.x, 0, scene.width);
+    this.position.y =MathEx.clamp(this.position.y, 0, scene.height);
   }
 
   render(context: CanvasRenderingContext2D) {
     context.save();
     context.translate(this.position.x, this.position.y);
     context.rotate(-this.rotation * (Math.PI / 180));
-    context.drawImage(this.sprites, 16 * this.team, 0, 16, 16, -8, -8, 16, 16);
+    context.drawImage(this.sprites, 64 * this.team, 0, 64, 64, -32, -32, 64, 64);
     context.restore();
   }
 }

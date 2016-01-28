@@ -3,35 +3,5 @@
   "version": "1.0.0",
   "description": "A simple canvas bullet hell game with an abstraction layer similar to Three.js",
   "license": "MIT",
-  "scripts": {
-    "init": "npm i ; jspm install; lite-server",
-    "build": "jspm bundle-sfx src/main build.min.js --minify",
-    "watch": "lite-server"
-  },
-  "author": "Alain Galvan",
-  "contributors": [
-    {
-      "name": "Shaman Tidiman",
-      "email": "shaman.tidiman@gmail.com"
-    },
-    {
-      "name": "Alain Galvan",
-      "email": "hi@alain.xyz"
-    }
-  ],
-  "devDependencies": {
-    "browser-sync": "^2.11.1",
-    "jspm": "^0.16.19",
-    "lite-server": "^1.3.4",
-    "typescript": "^1.6.2"
-  },
-  "jspm": {
-    "dependencies": {
-      "node-uuid": "npm:node-uuid@^1.4.7",
-      "ts": "github:frankwallis/plugin-typescript@^2.4.9"
-    },
-    "devDependencies": {
-      "typescript": "npm:typescript@^1.6.2"
-    }
-  }
+  "author": "Alain Galvan"
 }

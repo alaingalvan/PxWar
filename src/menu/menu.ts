@@ -10,15 +10,10 @@ import {Enemy} from '../ships/enemy';
 export class Menu extends GameObject {
   private logo: HTMLImageElement;
 
-  private fiu: HTMLImageElement;
-  private uf: HTMLImageElement;
-  private usf: HTMLImageElement;
-  private ucf: HTMLImageElement;
-
   private scene: Scene;
   private clock: Clock = new Clock();
   private alpha = 0;
-  private spawnship = false;
+  private startgame = false;
   constructor() {
     super();
     this.logo = new Image();
@@ -28,26 +23,16 @@ export class Menu extends GameObject {
   update(scene: Scene, input: Input) {
     this.scene = scene;
 
-
-
-    if (!this.spawnship && input.mouseClick()) {
-      this.spawnship = true;
+    if (!this.startgame && input.mouseClick()) {
+      this.startgame = true;
       this.clock = new Clock();
     }
 
     // Fade in and Fade out
-    if (this.spawnship) {
+    if (this.startgame) {
       this.alpha = Easing.easeOutExpo(1 - this.clock.getElapsedTime(), 0, 1, 1);
       if (this.alpha <= 0) {
         this.alpha = 0;
-        scene.add(new Player(0, {
-          x: Math.floor(Math.random() * scene.width),
-          y: Math.floor(Math.random() * scene.height)
-        }));
-        scene.add(new Enemy(1, {
-          x: Math.floor(Math.random() * scene.width),
-          y: Math.floor(Math.random() * scene.height)
-        }));
         scene.destroy(this);
       }
     }

@@ -2,7 +2,6 @@ import {GameObject} from './gameobject';
 import {Scene} from './scene';
 import {Input} from './input';
 import {Clock} from './clock';
-
 import {Viewport} from './viewport';
 
 /**
@@ -14,6 +13,8 @@ export class Renderer {
   public input: Input;
   public scene: Scene;
   public clock: Clock;
+
+  // Initzalize Renderer
   constructor() {
     this.canvas = document.createElement('canvas');
     this.canvas.tabIndex = 1;
@@ -28,14 +29,17 @@ export class Renderer {
     this.clock = new Clock();
   }
 
-  //Refreshes the screen with everything in the scene.
-  render() {
+  //Updates all the objects in the scene.
+  update() {
     var deltaTime = this.clock.deltaTime();
     this.scene.array.map((o) => {
       if ('update' in o)
         o.update(this.scene, this.input, deltaTime);
     });
+  }
 
+  //Refreshes the screen with everything in the scene.
+  render() {
     this.context.save();
     //Viewport
     this.context.translate(-this.scene.viewport.position.x, -this.scene.viewport.position.y);
@@ -43,7 +47,7 @@ export class Renderer {
 
     //Render Scene
     this.scene.array.map((o) => {
-      if (o !== undefined)
+      if ('render' in o)
         o.render(this.context);
     });
 

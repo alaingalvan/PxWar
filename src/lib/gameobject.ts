@@ -1,4 +1,3 @@
-import * as uuid from 'node-uuid';
 import {Scene} from './scene';
 import {Input} from './input';
 /**
@@ -6,12 +5,12 @@ import {Input} from './input';
  */
 export abstract class GameObject {
 
-  public id: string = uuid.v4();
+  public hitbox = {width: 64, height: 64, x: 0, y: 0};
 
   //Position of GameObject.
-  public position: { x: number, y: number } = { x: 0, y: 0 };
+  public position = { x: 0, y: 0 };
 
-  public velocity: { x: number, y: number } = { x: 0, y: 0 };
+  public velocity = { x: 0, y: 0 };
 
   //An angle in degrees.
   public rotation: number = 0;
