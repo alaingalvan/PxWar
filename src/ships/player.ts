@@ -1,26 +1,28 @@
+import {GameObject, Scene, Input, MathEx, KeyCode} from '../lib/engine';
+
 import {Ship} from './ship';
-import {GameObject} from '../lib/gameobject';
-import {Scene} from '../lib/scene';
-import {Input} from '../lib/input';
-import {MathEx} from '../lib/math/mathex';
 
 export class Player extends Ship {
+  public type = 'Player';
+  public shootSound = new Audio();
   constructor(public team = 0, public position: { x: number, y: number }) {
     super(team, position);
+    this.shootSound.src = 'sounds/laser.wav';
+    this.gunDamage = 10;
   }
   update(scene: Scene, input: Input, deltaTime:number) {
     super.update(scene, input, deltaTime);
 
     //Keyboard
-    var l = input.getKey('ArrowLeft');
-    var r = input.getKey('ArrowRight');
-    var u = input.getKey('ArrowUp');
-    var d = input.getKey('ArrowDown');
+    var l = input.getKey(KeyCode.ArrowLeft);
+    var r = input.getKey(KeyCode.ArrowRight);
+    var u = input.getKey(KeyCode.ArrowUp);
+    var d = input.getKey(KeyCode.ArrowDown);
 
     this.nextRotation = MathEx.keyboardAngle(u, l, d, r);
 
     this.moving = (u || l || d || r);
-    this.shooting = input.getKey('Space');
+    this.shooting = input.getKey(KeyCode.Space);
 
     //Sync Viewport with Screen
     scene.viewport.position.x = this.position.x - (scene.viewport.width / 2);

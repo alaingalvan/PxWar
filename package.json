@@ -2,6 +2,5 @@
   "name": "CanvasBulletHell",
   "version": "1.0.0",
   "description": "A simple canvas bullet hell game with an abstraction layer similar to Three.js",
-  "license": "MIT",
-  "author": "Alain Galvan"
+  "license": "MIT"
 }

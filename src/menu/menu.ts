@@ -1,43 +1,36 @@
-import {GameObject} from '../lib/gameobject';
-import {Scene} from '../lib/scene';
-import {Easing} from '../lib/math/easing';
-import {Clock} from '../lib/clock';
-import {Input} from '../lib/input';
-
-import {Player} from '../ships/player';
-import {Enemy} from '../ships/enemy';
+import {GameObject, Scene, Easing, Input} from '../lib/engine';
 
 export class Menu extends GameObject {
   private logo: HTMLImageElement;
 
   private scene: Scene;
-  private clock: Clock = new Clock();
   private alpha = 0;
   private startgame = false;
+  private elapsedTime = 0;
   constructor() {
     super();
     this.logo = new Image();
     this.logo.src = 'sprites/logo.png';
   }
 
-  update(scene: Scene, input: Input) {
+  update(scene: Scene, input: Input, deltaTime: number) {
     this.scene = scene;
+    this.elapsedTime += deltaTime;
 
     if (!this.startgame && input.mouseClick()) {
       this.startgame = true;
-      this.clock = new Clock();
     }
 
     // Fade in and Fade out
     if (this.startgame) {
-      this.alpha = Easing.easeOutExpo(1 - this.clock.getElapsedTime(), 0, 1, 1);
+      this.alpha = Easing.easeOutExpo(1 - this.elapsedTime, 0, 1, 1);
       if (this.alpha <= 0) {
         this.alpha = 0;
-        scene.destroy(this);
+        scene.next();
       }
     }
     else {
-      this.alpha = Easing.easeOutExpo(this.clock.getElapsedTime(), 0, 1, 1);
+      this.alpha = Easing.easeOutExpo(this.elapsedTime, 0, 1, 1);
     }
   }
 

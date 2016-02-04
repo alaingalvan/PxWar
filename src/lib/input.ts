@@ -1,6 +1,9 @@
-import {Keyboard} from './input/keyboard';
+import {Keyboard, KeyCode} from './input/keyboard';
 import {Mouse} from './input/mouse';
 import {Touch} from './input/touch';
+
+export {KeyCode} from './input/keyboard';
+
 /**
  * Manages all input events.
  */
@@ -15,7 +18,7 @@ export class Input {
   }
 
   //Keyboard
-  getKey(key: string) {
+  getKey(key: KeyCode) {
     return this.keyboard.getKey(key);
   }
   //Mouse

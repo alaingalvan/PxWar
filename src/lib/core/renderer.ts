@@ -1,8 +1,7 @@
 import {GameObject} from './gameobject';
 import {Scene} from './scene';
-import {Input} from './input';
-import {Clock} from './clock';
-import {Viewport} from './viewport';
+import {Input} from '../input';
+import {Clock} from '../time/clock';
 
 /**
  * Manages rendering objects on canvas.
@@ -25,30 +24,31 @@ export class Renderer {
 
     //Initialize Singletons
     this.input = new Input(this.canvas);
-    this.scene = new Scene(new Viewport(), 800, 800);
     this.clock = new Clock();
   }
 
   //Updates all the objects in the scene.
-  update() {
+  update(scene: Scene) {
     var deltaTime = this.clock.deltaTime();
-    this.scene.array.map((o) => {
+    scene.array.map((o) => {
       if ('update' in o)
-        o.update(this.scene, this.input, deltaTime);
+        if (scene)
+          o.update(scene, this.input, deltaTime);
     });
   }
 
   //Refreshes the screen with everything in the scene.
-  render() {
+  render(scene: Scene) {
     this.context.save();
     //Viewport
-    this.context.translate(-this.scene.viewport.position.x, -this.scene.viewport.position.y);
-    this.context.clearRect(this.scene.viewport.position.x, this.scene.viewport.position.y, this.scene.viewport.width, this.scene.viewport.height);
+    this.context.translate(-scene.viewport.position.x, -scene.viewport.position.y);
+    this.context.clearRect(scene.viewport.position.x, scene.viewport.position.y, scene.viewport.width, scene.viewport.height);
 
     //Render Scene
-    this.scene.array.map((o) => {
+    scene.array.map((o) => {
       if ('render' in o)
-        o.render(this.context);
+        if (scene)
+          o.render(this.context);
     });
 
     this.context.restore();

@@ -1,30 +1,31 @@
+import {GameObject, Scene, Input, MathEx} from '../lib/engine';
+
 import {Ship} from './ship';
-import {GameObject} from '../lib/gameobject';
-import {Scene} from '../lib/scene';
-import {Input} from '../lib/input';
-import {MathEx} from '../lib/math/mathex';
 import {Player} from './player';
 
 
 export class Enemy extends Ship {
-  public timer = 0;
+  public type = 'Enemy';
   constructor(public team = 0, public position: { x: number, y: number }) {
     super(team, position);
-  }
-  update(scene: Scene, i, deltaTime:number) {
-    super.update(scene, i, deltaTime);
+    // Adjust Stats
+    this.spdMax = 128;
+    this.gunReloadTime = 0.5;
 
-    setInterval(this.changeTarget, 500);
+    // Add AI Reaction timer
+    this.timer.addTimer('react');
 
-   //The player is garaneteed to be the 2nd array entry.
-    var player:Player = scene.array[1];
-
-    this.nextRotation = MathEx.getAngleTwoPoints(this.position.x, this.position.y, player.position.x, player.position.y);
+    // Controls
     this.moving = true;
     this.shooting = true;
   }
+  update(scene: Scene, i, deltaTime: number) {
+    super.update(scene, i, deltaTime);
+    var player: Player = scene.findObjectOfType('Player')[0];
 
-  changeTarget() {
-    console.log(this);
+    if (player && this.timer.done('react')) {
+      this.timer.set('react', Math.random());
+      this.nextRotation = (Math.random() > 0.25) ? this.nextRotation : MathEx.getAngleTwoPoints(this.position.x, this.position.y, player.position.x, player.position.y);
+    }
   }
 }
