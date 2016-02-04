@@ -7,7 +7,7 @@ export class Boss extends Enemy {
     super(1, position);
     // Edit Stats
     this.spdMax = this.spdMax * 0.5; //He moves at half the spd as other ships.
-    this.hpMax = 1000;
+    this.hpMax = this.hp = 1000;
 
     // Adjust hitbox
     this.hitbox.width = 128;
