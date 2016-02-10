@@ -1,7 +1,7 @@
 import {GameObject, Scene, Input, MathEx, KeyCode} from '../lib/engine';
 
 import {Ship} from './ship';
-
+import {Enemy} from './enemy';
 export class Player extends Ship {
   public type = 'Player';
   public shootSound = new Audio();
@@ -23,6 +23,16 @@ export class Player extends Ship {
 
     this.moving = (u || l || d || r);
     this.shooting = input.getKey(KeyCode.Space);
+
+    // Check collisions with enemies
+    scene.findObjectOfType('Enemy').map(
+      (enemy: Enemy) => {
+        if (this.isColliding(enemy)) {
+          this.hp--;
+          enemy.hp--;
+        }
+      }
+    );
 
     //Sync Viewport with Screen
     scene.viewport.position.x = this.position.x - (scene.viewport.width / 2);

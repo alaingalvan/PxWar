@@ -1,5 +1,5 @@
 // Game Engine
-import {Renderer, SceneManager, Scene} from './lib/engine';
+import {Renderer, SceneManager, Scene, KeyCode} from './lib/engine';
 
 // Game Specific Stuff
 import {Background} from './menu/background';
@@ -13,7 +13,8 @@ import {Boss} from './ships/boss';
 import {Healthpack} from './misc/healthpack';
 import {Portal} from './misc/portal';
 
-var renderer, sceneManager;
+var renderer: Renderer,
+  sceneManager: SceneManager;
 
 function start() {
   // Create Renderer
@@ -54,6 +55,7 @@ function createScene(level: number): Scene {
   }));
 
   // Past level 5 you need to spawn mini healthpacks
+
   scene.add(new Healthpack({
     x: Math.floor(Math.random() * scene.width),
     y: Math.floor(Math.random() * scene.height)
@@ -85,8 +87,8 @@ function createScene(level: number): Scene {
 
 function createMainMenu() {
   var scene = new Scene({ position: { x: 64, y: 64 }, width: 640, height: 360 }, 800, 800);
-    scene.add(new Background());
-    scene.add(new Menu());
+  scene.add(new Background());
+  scene.add(new Menu());
   return scene;
 }
 

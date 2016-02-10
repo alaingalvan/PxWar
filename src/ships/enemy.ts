@@ -25,7 +25,7 @@ export class Enemy extends Ship {
 
     if (player && this.timer.done('react')) {
       this.timer.set('react', Math.random());
-      this.nextRotation = (Math.random() > 0.25) ? this.nextRotation : MathEx.getAngleTwoPoints(this.position.x, this.position.y, player.position.x, player.position.y);
+      this.nextRotation = (Math.random() > 0.1) ? this.nextRotation : MathEx.getAngleTwoPoints(this.position.x, this.position.y, player.position.x, player.position.y);
     }
   }
 }

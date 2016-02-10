@@ -21,6 +21,15 @@ export class Input {
   getKey(key: KeyCode) {
     return this.keyboard.getKey(key);
   }
+  getKeyPressed(key: KeyCode) {
+    return this.keyboard.getKeyPressed(key);
+  }
+  getKeyReleased(key: KeyCode) {
+    return this.keyboard.getKeyReleased(key);
+  }
+  update() {
+    this.keyboard.update();
+  }
   //Mouse
   mousePosition() {
     return this.mouse.mousePosition;

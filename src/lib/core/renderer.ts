@@ -52,5 +52,6 @@ export class Renderer {
     });
 
     this.context.restore();
+    this.input.update();
   }
 }

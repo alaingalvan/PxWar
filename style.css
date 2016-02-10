@@ -25,6 +25,6 @@ canvas:focus {
 
 @media (min-width:960px) {
   canvas {
-    transform: scale(2);
+    transform: scale(1);
   }
 }

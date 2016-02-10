@@ -96,12 +96,24 @@ export class Keyboard {
     this.canvas.addEventListener('keyup', (e) => this.keyUpCallback(e));
   }
   keyDownCallback(event: KeyboardEvent) {
-    this.keys[event.keyCode] = true;
+    this.keys[event.keyCode] = { down: true, pressed: true, released: false };
   }
   keyUpCallback(event) {
-    this.keys[event.keyCode] = false;
+    this.keys[event.keyCode] = { down: false, pressed: false, released: true };
   }
   getKey(key: KeyCode) {
-    return (this.keys[key] === undefined || !this.keys[key]) ? false : true;
+    return (this.keys[key] === undefined) ? false : this.keys[key].down;
+  }
+  getKeyPressed(key: KeyCode) {
+    return (this.keys[key] === undefined) ? false : this.keys[key].pressed;
+  }
+  getKeyReleased(key: KeyCode) {
+    return (this.keys[key] === undefined) ? false : this.keys[key].released;
+  }
+  update() {
+    for (var e in this.keys) {
+      this.keys[e].pressed = false;
+      this.keys[e].released = false;
+    }
   }
 }

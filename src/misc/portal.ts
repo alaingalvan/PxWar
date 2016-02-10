@@ -26,7 +26,6 @@ export class Portal extends GameObject {
 
     // Spin slowly
     this.rotation += deltaTime * 5;
-    console.log(this.rotation);
   }
   render(context: CanvasRenderingContext2D) {
     context.save();

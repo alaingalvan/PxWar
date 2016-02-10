@@ -18,7 +18,7 @@ export class GUI extends GameObject {
   render(context: CanvasRenderingContext2D) {
     context.fillStyle = "#ffffff";
     context.font = '16px PixelFont';
-    if (this.viewport)
+     if (this.viewport)
       context.fillText(this.myString, this.viewport.position.x + 16, this.viewport.position.y + 16);
   }
 }
