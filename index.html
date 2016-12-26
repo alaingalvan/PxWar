@@ -12,10 +12,9 @@
 <body>
   <div id="game"></div>
 
-  <!--Load SystemJS from a CDN (Content Distribution Network) to autoload our JavaScript-->
+  <!--Load SystemJS to autoload our JavaScript-->
   <!--This is so we don't have a million script elements. :) -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.17/system.js"></script>
+  <script src="node_modules/systemjs/dist/system.js"></script>
   <script>
 
     // Import our main file and output any errors to the console.
@@ -27,7 +26,8 @@
         }
       }
     });
-    System.import('/js/main.js').then(null, console.error.bind(console));
+    System.import('/js/main.js')
+    .then(null, console.error.bind(console));
   </script>
 </body>
 

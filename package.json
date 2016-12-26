@@ -1,6 +1,19 @@
 {
-  "name": "CanvasBulletHell",
+  "name": "pxwar",
   "version": "1.0.0",
   "description": "A simple canvas bullet hell game with an abstraction layer similar to Three.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "concurrently 'npm run watch' 'npm run lite'",
+    "lite": "lite-server",
+    "watch": "tsc -w"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "lite-server": "^2.2.2",
+    "typescript": "^2.1.4"
+  },
+  "dependencies": {
+    "systemjs": "^0.19.41"
+  }
 }

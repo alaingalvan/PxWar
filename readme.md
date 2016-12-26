@@ -1,6 +1,6 @@
 ![Screenshot](sprites/screenshot.gif)
 
-# Canvas Bullet Hell Example
+# PxWar
 
 An example [HTML5 Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) game built with a custom engine influenced by [Phaser](https://github.com/photonstorm/phaser/), [Pixi](https://github.com/pixijs/pixi.js/), [Angular](http://angular.io/), [React](https://facebook.github.io/react/) and [Three](http://threejs.org/) libraries.
 
@@ -8,58 +8,22 @@ This was developed in TypeScript, a superset of JavaScript with beta features bu
 
 ## Getting Started
 
-Download the LTS (Long Time Support) version [Node](https://nodejs.org/en/download/) and run `npm install typescript --global` in the command line.
+Download [Node](https://nodejs.org/en/download/), [Git](https://git-scm.com/downloads), a text editor like [VS Code](https://code.visualstudio.com/), and a good terminal like [HyperTerm](https://hyper.is/) or [Cmder](http://cmder.net/) if you're on Windows. Then run the following in the command line.
 
-If you're on Windows and want a better command prompt, download [Cmder](http://cmder.net/) and put it in your program files (or anywhere you want).
-
-Download [Gitub Atom](https://atom.io/) and download the [TypeScript plugin](https://atom.io/packages/atom-typescript) by pressing `Ctrl + Shift + P` and typing in `Install Packages and Themes`, and search for `TypeScript` in the search bar.
-
-You can use another editor if you go to the directory where your code is with the command prompt, and type `tsc -w`, this will tell the compiler to watch for file changes and compile them automatically.
-
-Make sure you have node installed, and then just `node server.js` and open up `localhost:3000` on your browser!
-
-```javascript
-import {Renderer, SceneManager, Scene} from './lib/engine';
-
-import {Back} from './menu/back';
-import {Menu} from './menu/menu';
-import {Player} from './ships/player';
-import {Enemy} from './ships/enemy';
-
-var renderer;
-
-function start() {
-  // Create Renderer
-  renderer = new Renderer();
-  var canvas: HTMLCanvasElement = renderer.canvas;
-  document.getElementById('game').appendChild(canvas);
-  canvas.focus();
-
-  // Create SceneManager and Levels
-  sceneManager = new SceneManager();
-  for (var i = 0; i < 10; i++)
-    sceneManager.add(createScene(i));
-}
-function createScene(level) {
-  var scene = new Scene({ position: { x: 64, y: 64 }, width: 640, height: 360 }, 800, 800);
-
-  // Add stuff to the scene.
-
-  return scene;
-
-}
-
-function animate() {
-  renderer.update(sceneManager.current());
-  renderer.render(sceneManager.current());
-  requestAnimationFrame(animate);
-}
-
-start();
-animate();
+```bash
+# Clone the repo
+git clone https://github.com/alaingalvan/PxWar.git
+# Go to the repo directory
+cd PxWar
+# Install dependencies
+npm i
+# Start server
+npm start
+# (Optional) Open VS Code
+code
 ```
 
-## Quickstart
+## Breakdown
 
 ### Creating your own Objects
 
