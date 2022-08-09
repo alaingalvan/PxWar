@@ -1,5 +1,5 @@
-import {GameObject, Scene, Input, MathEx} from '../lib/engine';
-import {Enemy} from './enemy';
+import {GameObject, Scene, Input, MathEx} from '../lib/engine.js';
+import {Enemy} from './enemy.js';
 
 export class Boss extends Enemy {
     public sprite = new Image();

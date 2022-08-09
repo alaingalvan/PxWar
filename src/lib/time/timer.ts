@@ -19,13 +19,15 @@ export class Timer {
   // Updates all the timers in this instance.
   update(deltaTime: number) {
     for (var key in this) {
-      if (!isNaN(parseFloat(this[key].cur)) && isFinite(this[key].cur))
-        this[key].cur -= deltaTime;
+      let that = this[key] as any;
+      if (!isNaN(parseFloat(that.cur)) && isFinite(that.cur))
+      that.cur -= deltaTime;
     }
   }
 
   // Checks if a given timer is done.
   done(key: string) {
+    let that = this[key] as any;
     if (this[key])
       return this[key].cur <= 0;
     return false;
@@ -43,7 +45,8 @@ export class Timer {
 
   // Gets the current value of a timer.
   get(key: string) {
-    return this[key].cur;
+    let that = this[key] as any;
+    return that.cur;
   }
 
   remove(key: string) {

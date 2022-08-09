@@ -1,4 +1,4 @@
-import {GameObject, Scene, Easing, Input} from '../lib/engine';
+import {GameObject, Scene, Easing, Input} from '../lib/engine.js';
 
 export class Menu extends GameObject {
   private logo: HTMLImageElement;

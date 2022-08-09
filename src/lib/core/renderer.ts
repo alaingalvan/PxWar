@@ -1,7 +1,7 @@
-import {GameObject} from './gameobject';
-import {Scene} from './scene';
-import {Input} from '../input';
-import {Clock} from '../time/clock';
+import {GameObject} from './gameobject.js';
+import {Scene} from './scene.js';
+import {Input} from '../input.js';
+import {Clock} from '../time/clock.js';
 
 /**
  * Manages rendering objects on canvas.

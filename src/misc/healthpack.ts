@@ -1,4 +1,4 @@
-import {GameObject, Scene, Input, MathEx, Timer} from '../lib/engine';
+import {GameObject, Scene, Input, MathEx, Timer} from '../lib/engine.js';
 
 export class Healthpack extends GameObject {
   public type = 'Healthpack';

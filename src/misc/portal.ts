@@ -1,4 +1,4 @@
-import {GameObject, Scene} from '../lib/engine';
+import {GameObject, Scene} from '../lib/engine.js';
 
 export class Portal extends GameObject {
   public type = 'Portal';

@@ -1,7 +1,7 @@
-import {GameObject, Scene, Input, MathEx} from '../lib/engine';
+import {GameObject, Scene, Input, MathEx} from '../lib/engine.js';
 
-import {Ship} from './ship';
-import {Player} from './player';
+import {Ship} from './ship.js';
+import {Player} from './player.js';
 
 
 export class Enemy extends Ship {

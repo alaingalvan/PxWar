@@ -1,7 +1,7 @@
-import {GameObject, Scene, Input, MathEx} from '../lib/engine';
+import {GameObject, Scene, Input, MathEx} from '../lib/engine.js';
 
-import {Bullet} from './bullet';
-import {Timer} from '../lib/time/timer';
+import {Bullet} from './bullet.js';
+import {Timer} from '../lib/time/timer.js';
 /**
  * The player ship.
  */

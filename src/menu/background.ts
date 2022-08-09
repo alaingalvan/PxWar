@@ -1,4 +1,4 @@
-import {GameObject, Scene} from '../lib/engine';
+import {GameObject, Scene} from '../lib/engine.js';
 
 export class Background extends GameObject {
   private scene: Scene;

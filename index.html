@@ -11,24 +11,7 @@
 
 <body>
   <div id="game"></div>
-
-  <!--Load SystemJS to autoload our JavaScript-->
-  <!--This is so we don't have a million script elements. :) -->
-  <script src="node_modules/systemjs/dist/system.js"></script>
-  <script>
-
-    // Import our main file and output any errors to the console.
-    System.config({
-      packages: {
-        js: {
-          format: 'register',
-          defaultExtension: 'js'
-        }
-      }
-    });
-    System.import('/js/main.js')
-    .then(null, console.error.bind(console));
-  </script>
+  <script type="module" src="/js/main.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
-import {GameObject, Scene, Input, MathEx, KeyCode} from '../lib/engine';
+import {GameObject, Scene, Input, MathEx, KeyCode} from '../lib/engine.js';
 
-import {Ship} from './ship';
-import {Enemy} from './enemy';
+import {Ship} from './ship.js';
+import {Enemy} from './enemy.js';
 export class Player extends Ship {
   public type = 'Player';
   public shootSound = new Audio();

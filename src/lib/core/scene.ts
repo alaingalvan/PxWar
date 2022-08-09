@@ -1,5 +1,5 @@
-import {GameObject} from './gameobject';
-import {SceneManager} from './scenemanager';
+import {GameObject} from './gameobject.js';
+import {SceneManager} from './scenemanager.js';
 interface Viewport {
   position: { x: number, y: number },
   width: number,

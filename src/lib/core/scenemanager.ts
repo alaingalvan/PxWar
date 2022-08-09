@@ -1,7 +1,7 @@
 /**
  * A collection of Scenes that let you go from scene to scene.
  */
-import {Scene} from './scene';
+import {Scene} from './scene.js';
 
 export class SceneManager {
   public array = [];

@@ -1,5 +1,5 @@
-import {Scene} from './scene';
-import {Input} from '../input';
+import {Scene} from './scene.js';
+import {Input} from '../input.js';
 /**
  * Holds core parameters needed to render/manage a game object.
  */

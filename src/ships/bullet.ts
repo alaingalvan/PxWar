@@ -1,6 +1,6 @@
-import {GameObject, Scene} from '../lib/engine';
+import {GameObject, Scene} from '../lib/engine.js';
 
-import {Player} from './player';
+import {Player} from './player.js';
 
 export class Bullet extends GameObject {
   public type = 'Bullet';

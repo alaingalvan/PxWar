@@ -1,8 +1,8 @@
-import {Keyboard, KeyCode} from './input/keyboard';
-import {Mouse} from './input/mouse';
-import {Touch} from './input/touch';
+import {Keyboard, KeyCode} from './input/keyboard.js';
+import {Mouse} from './input/mouse.js';
+import {Touch} from './input/touch.js';
 
-export {KeyCode} from './input/keyboard';
+export {KeyCode} from './input/keyboard.js';
 
 /**
  * Manages all input events.

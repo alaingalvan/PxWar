@@ -1,17 +1,17 @@
 // Game Engine
-import {Renderer, SceneManager, Scene, KeyCode} from './lib/engine';
+import {Renderer, SceneManager, Scene, KeyCode} from './lib/engine.js';
 
 // Game Specific Stuff
-import {Background} from './menu/background';
-import {Menu} from './menu/menu';
-import {GUI} from './menu/gui';
+import {Background} from './menu/background.js';
+import {Menu} from './menu/menu.js';
+import {GUI} from './menu/gui.js';
 
 
-import {Player} from './ships/player';
-import {Enemy} from './ships/enemy';
-import {Boss} from './ships/boss';
-import {Healthpack} from './misc/healthpack';
-import {Portal} from './misc/portal';
+import {Player} from './ships/player.js';
+import {Enemy} from './ships/enemy.js';
+import {Boss} from './ships/boss.js';
+import {Healthpack} from './misc/healthpack.js';
+import {Portal} from './misc/portal.js';
 
 var renderer: Renderer,
   sceneManager: SceneManager;

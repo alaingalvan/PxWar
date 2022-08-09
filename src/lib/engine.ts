@@ -1,6 +1,6 @@
 // Import this to get access to everything in the game engine.
 
-export * from './core';
-export * from './input';
-export * from './time';
-export * from './math';
+export * from './core.js';
+export * from './input.js';
+export * from './time.js';
+export * from './math.js';
